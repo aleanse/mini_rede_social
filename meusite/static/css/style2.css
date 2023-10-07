@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+* {
+  margin:0 auto;
+  padding: 0;
+
+}
+
+.login form {
+    display:flex;
+    flex-direction:column;
+}
+
+.login input {
+    margin-top:10px;
+    margin-bottom:8px;
+    width:200px;
+    height:20px;
+    border-radius:3px;
+    border:none;
+}
+
+.login label {
+    margin-bottom: 0px;
+    font-size: 17px;
+}
+
+form [type="submit"] {
+    display:box;
+    margin-top:16px;
+    background-color: #AED6F1;
+    width:208px;
+    height:25px;
+    border-radius:5px;
+    border:none;
+
+}
+
+.erro {
+    display: block;
+    color:purple;
+    margin-top: 10px;
+    top: 100px;
+    left: 50px;
+
+
+}

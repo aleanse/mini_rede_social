@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>estudos</title>
+    <link rel="stylesheet" href={{url_for('static',filename='css/style.css')}}>
+
+
+
+</head>
+<body>
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+        {% with mensagens = get_flashed_messages(with_categories=True) %}
+              {% if mensagens %}
+                {% for categoria, mensagem in mensagens %}
+                  <p>{{ mensagem }}</p>
+                {% endfor %}
+              {% endif%}
+         {% endwith %}
+        <div class="login">
+            <form  method="post" action="">
+                {{ campo_login.csrf_token }}
+                {% if campo_login.email.errors %}
+                    <div class="erro">
+                        {% for erro in campo_login.email.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {{ campo_login.email.label }}
+                {{ campo_login.email }}
+
+
+                {{ campo_login.senha.label }}
+                {{ campo_login.senha }}
+
+
+                {{ campo_login.submit_login }}
+            <p>não possui conta? <a style="color:blue" href="{{url_for('criar_conta')}}">criar conta</a></p>
+
+            </form>
+        </div>
+
+{% endblock %}
+
+
+
+
+</body>
+</html>

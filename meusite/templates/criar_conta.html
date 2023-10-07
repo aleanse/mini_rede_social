@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href={{url_for('static',filename='css/style2.css')}}>
+
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+
+  <div class="login">
+      <form method="post" action="">
+          {{ campo_criarconta.csrf_token}}
+
+              {% if campo_criarconta.username.errors %}
+                <ul class="erro">
+                    {% for erro in campo_criarconta.username.errors %}
+                       <li>{{ erro }}</li>
+                    {% endfor %}
+                </ul>
+              {% endif %}
+
+                 {{campo_criarconta.username.label}}
+                 {{campo_criarconta.username}}
+
+
+            {% if campo_criarconta.email.errors %}
+                <ul class="erro">
+                    {% for erro in campo_criarconta.email.errors %}
+                        <li>{{ erro }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+                {{campo_criarconta.email.label}}
+                {{campo_criarconta.email}}
+
+
+                {{campo_criarconta.senha.label}}
+                {{campo_criarconta.senha}}
+
+            {% if campo_criarconta.confirmacao_senha.errors %}
+                <div class="erro">
+                    {% for erro in campo_criarconta.confirmacao_senha.errors %}
+                        {{ erro }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+                {{campo_criarconta.confirmacao_senha.label}}
+                {{campo_criarconta.confirmacao_senha}}
+
+
+                {{campo_criarconta.submit_criarconta}}
+
+
+      </form>
+
+  </div>
+{% endblock %}
+
+</body>
+</html>

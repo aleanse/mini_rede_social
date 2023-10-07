@@ -1,0 +1,70 @@
+@charset "UTF-8";
+ body {
+            background-color: #040b1b;
+            widht:100vw;
+            font-family: Arial,sans-serif,Helvetica;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            flex-direction:column;
+            color:white;
+        }
+        .area-fundo{
+             height: 100vh;
+             height: 100vh;
+             display: flex;
+             align-items: center;
+             flex-direction: column;
+             font-family: Arial,sans-serif,Helvetica;
+             justify-content:center;
+        }
+        .area-login .area-usuarios {
+            display: flex;
+            flex-direction: row ;
+            align-items: center;
+            justify-content: flex-start;
+         }
+         .fundo .area-usuarios{
+             display: flex;
+             flex-direction: row ;
+             align-items: center;
+             justify-content: flex-start;
+
+         }
+         .area-fundo .cabecalho {
+            top:0;
+            position: fixed;
+            overflow: hidden;
+         }
+
+
+        .nav-bar{
+            display:flex;
+            justify-content: flex-start;
+            margin-top:9px;
+            width:100vw;
+            height:8vh;
+        }
+        .lista {
+            list-style:none;
+            display:flex;
+            margin: 0;
+            padding: 0;
+        }
+        li  {
+            letter-spacing: 3px;
+            margin-left: 32px;
+            margin-top:10px;
+            font-size:20px;
+            float:right;
+        }
+        a {
+             text-decoration: none;
+             list-style: none;
+             color:white;
+         }
+
+li h2 {
+    color:red;
+    margin-top:-7px;
+}

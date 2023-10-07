@@ -1,0 +1,50 @@
+{% extends 'perfil.html' %}
+
+{% block form_editar_perfil %}
+     <div class="login-editar-perfil">
+            <form  method="post" action="" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                <div class="item">
+                    {{ form.email.label }}
+                </div>
+                 {{ form.email }}
+                {% if form.email.errors %}
+                    <div class="erro">
+                        {% for erro in form.email.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+
+                <div class="item">
+                    {{ form.username.label }}
+                </div>
+
+                {{ form.username }}
+                     {% if form.username.errors %}
+                            <div class="erro">
+                                {% for erro in form.username.errors %}
+                                    {{ erro }}
+                                {% endfor %}
+                            </div>
+                      {% endif %}
+                {% if form.editar_foto.errors %}
+                    <div class="erro">
+                        {% for erro in form.editar_foto.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="item">
+                    {{ form.editar_foto.label }}
+                </div>
+
+                {{ form.editar_foto }}
+
+                {{ form.submit_editar_perfil }}
+
+
+            </form>
+        </div>
+{% endblock %}

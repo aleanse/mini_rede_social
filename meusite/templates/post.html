@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href={{url_for('static',filename='css/home.css')}}>
+  <link rel="stylesheet" href={{url_for('static',filename='css/perfil.css')}}>
+  <title>FACEBOOK 2</title>
+
+</head>
+<body>
+ <div class="row">
+              <div class="column1">
+                  <img src="{{ url_for('static', filename='fotos_perfil/' + post.autor.foto_perfil)}}" alt="Person" class="card__image">
+                  {{ post.autor.username }}
+                  {% if post.autor.email == current_user.email %}
+                    <a  href="{{ url_for('excluir_post',post_id = post.id ) }}"><button style="color:red;"
+                            class="btn draw-border">excluir
+                                 post</button></a>
+
+                  {% endif %}
+              </div>
+              <div class="column2">
+                  <h2 style="color:blue">{{ post.titulo }}</h2> <small>Data de criação: {{
+                  post.data_criacao.strftime('%d/%m/%Y') }} </small>
+                  <p>{{ post.corpo }}</p>
+              </div>
+
+ </div>
+</body>
+</html>

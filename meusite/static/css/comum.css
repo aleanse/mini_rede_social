@@ -1,0 +1,97 @@
+
+@charset "UTF-8";
+
+* {
+  margin:0 auto;
+  padding: 0;
+}
+
+
+.area-login {
+    background-image: url(../img/pexels.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial,sans-serif,Helvetica;
+    justify-content:center;
+
+}
+.area-login .area-usuarios {
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: flex-start;
+
+
+}
+.area-login .container {
+    display: flex;
+    flex-direction: column ;
+    justify-content:flex-end;
+
+
+
+}
+
+.area-login .cabecalho {
+    top:0;
+    position: fixed;
+    overflow: hidden;
+}
+
+
+.nav-bar{
+    display:flex;
+    justify-content: flex-start;
+    margin-top:9px;
+    width:100vw;
+    height:8vh;
+}
+
+.login {
+    display: flex;
+    width: 450px;
+    height: 450px;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.3);
+    }
+.login form {
+    display:flex;
+    flex-direction:column;
+
+.login input{
+    margin-top:10px;
+    margin-bottom:8px;
+    width:200px;
+    height:20px;
+    border-radius:3px;
+    border:none;
+    }
+form [type="submit"] {
+    display:box;
+    margin-top:16px;
+    background-color: #AED6F1;
+    width:208px;
+    height:25px;
+    border-radius:5px;
+    border:none;
+}
+.cabecalho p {
+   margin-left:40px;
+}
+
+
+
+
+
+
+
+

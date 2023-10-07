@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>criar post</title>
+     <link rel="stylesheet" href={{url_for('static',filename='css/post.css')}}>
+</head>
+<body>
+
+  <div class="area-post">
+      <header class="cabecalho">
+                <nav class="nav-bar">
+                    <ul class="lista">
+                        <li>
+                            <h2 ><a href="{{url_for('home')}}" style="color:red">FACEBOOK 2</a></h2>
+                        </li>
+                            {% if current_user.is_authenticated %}
+                                <li>
+                                <a href="{{url_for('usuarios')}}">usuarios</a>
+                                </li>
+                                 <li>
+                                <a href="{{url_for('post')}}">criar post</a>
+                                </li>
+                                 <li>
+                                    <a href="{{url_for('perfil')}}">meu perfil</a>
+                                </li>
+                                 <li>
+                                     <a href="{{url_for('sair')}}">sair</a>
+                                </li>
+
+                             {% else %}
+                                 <li>
+                                    <a href="{{url_for('login')}}">login</a>
+                                </li>
+                                <li>
+                                    <a href="{{url_for('criar_conta')}}">criar conta</a>
+                                 </li>
+                            {% endif %}
+
+
+                        <li>
+                            {% with mensagens = get_flashed_messages(with_categories=True) %}
+                                {% if mensagens %}
+                                    {% for categoria, mensagem in mensagens %}
+                                         <p>{{ mensagem }}</p>
+                                    {% endfor %}
+                                {% endif%}
+                            {% endwith %}
+                        </li>
+                    </ul>
+
+                </nav>
+      </header>
+       <div class="post">
+            <form  method="post" action="">
+                {{ form.csrf_token }}
+                {% if form.errors %}
+                    <div class="erro">
+                        {% for erro in form.errors %}
+                            {{ erro }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {{ form.titulo.label }}
+                {{ form.titulo(class="titulo") }}
+
+
+                {{ form.corpo.label }}
+                {{ form.corpo(class="corpo") }}
+
+
+                {{ form.botao_submit }}
+            </form>
+        </div>
+  </div>
+</body>
+</html>

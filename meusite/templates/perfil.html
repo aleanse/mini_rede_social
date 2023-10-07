@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+  {% with mensagens = get_flashed_messages(with_categories=True) %}
+        {% if mensagens %}
+          {% for categoria, mensagem in mensagens %}
+            <p>{{ mensagem }}</p>
+          {% endfor %}
+        {% endif%}
+  {% endwith %}
+  <div class="container">
+
+
+    <div class="card">
+      <img src="{{foto_perfil}}" alt="Person" class="card__image">
+      <p class="card__name">{{ current_user.username }}</p>
+      <div class="grid-container">
+
+        <div class="grid-child-posts">
+          {{ current_user.contar_seguindo() }} <a href="{{ url_for('seguindo',usuario_id=current_user.id) }}">seguindo</a>
+        </div>
+
+        <div class="grid-child-followers">
+        {{ current_user.contar_seguidores()}} <a href="{{ url_for('seguidores',usuario_id=current_user.id) }}">seguidores</a>
+        </div>
+
+      </div>
+
+      <a href="{{ url_for('editar_perfil') }}"><button class="btn draw-border">editar perfil</button></a>
+
+
+
+
+    </div>
+  </div>
+  {% block form_editar_perfil %}
+  {% endblock %}
+{% endblock %}
+</body>
+</html>
